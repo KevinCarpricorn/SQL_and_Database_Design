@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/pure.css') }}">
+        <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/main.css') }}">
+        <title>{{ page.title }}</title>
+    </head>
+    <body>
+        <div id="header" class="pure-menu pure-menu-horizontal">
+            <a href="/" class="pure-menu-heading pure-menu-link">UniDB</a>
+            {% if session.logged_in %}
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="{{ url_for('list_units') }}" class="pure-menu-link">All Units</a></li>
+                <li class="pure-menu-item"><a href="{{ url_for('list_prereq') }}" class="pure-menu-link">Prerequisites</a></li>
+                <li class="pure-menu-item"><a href="{{ url_for('report') }}" class="pure-menu-link">Report</a></li>
+                <li class="pure-menu-item"><a href="{{ url_for('search') }}" class="pure-menu-link">Search</a></li>
+                <li class="pure-menu-item"><a href="{{ url_for('add') }}" class="pure-menu-link">Adding</a></li>
+                <li class="pure-menu-item"><a href="{{ url_for('get_credits') }}" class="pure-menu-link">Credits</a></li>
+                <li class="pure-menu-item"><a href="{{ url_for('logout')}}" class="pure-menu-link">Logout</a></li>
+            </ul>
+            {% endif %}
+            <div id="top-unikey">{{ page.unikey }}</div>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}

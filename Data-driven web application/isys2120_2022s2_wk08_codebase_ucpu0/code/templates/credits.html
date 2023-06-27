@@ -1,0 +1,35 @@
+{% include 'top.html' %}
+    <div id="content">
+        <div id="container">
+            <h1 class="page-title">Number of credits of prerequisites</h1>
+        </div>
+        <form class="pure-form pure-form-stacked login" method="POST" action="{{ url_for('get_credits') }}">
+            <label for="UoS Code">UoS Code</label>
+            <input type="text" name="uoSCode" placeholder="Enter an unit of study code">
+            <button id="check_available_classrooms_btn" class="pure-button pure-button-primary" type="submit">Check !
+            </button>
+        </form>
+        <div id="container">
+            <h1 class="page-title">Credits Table</h1>
+        </div>
+        <table class="pure-table">
+            <thead>
+            <tr>
+                <th>UOS Code</th>
+                <th>Prerequisite units</th>
+                <th>Number of credits</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for unit in credit %}
+                <tr>
+                    <td> {{ unit[0] }}</td>
+                    <td> {{ unit[1] }}</td>
+                    <td> {{ unit[2] }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

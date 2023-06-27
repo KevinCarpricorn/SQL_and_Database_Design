@@ -1,0 +1,24 @@
+{% include 'top.html' %}
+<div id="content">
+    <div id="container">
+        <h1 class="page-title">Prerequisites report</h1>
+        </div>
+        <table class="pure-table">
+            <thead>
+                <tr>
+                    <th>UOS Code</th>
+                    <th>Number of Prerequisites</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in report %}
+                <tr>
+                    <td> {{row[0]}}</td>
+                    <td> {{row[1]}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+</body>
+</html>

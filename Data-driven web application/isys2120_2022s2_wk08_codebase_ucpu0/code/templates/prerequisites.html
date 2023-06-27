@@ -1,0 +1,30 @@
+{% include 'top.html' %}
+<div id="content">
+    <div id="container">
+        <h1 class="page-title">Prerequisites pair</h1>
+        </div>
+        <table class="pure-table">
+            <thead>
+                <tr>
+                    <th>UOS Code</th>
+                    <th>UOS Name</th>
+                    <th>Prerequisite UOS Code</th>
+                    <th>Prerequisite UOS Name</th>
+                    <th>Enforeced Since</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in prereqs %}
+                <tr>
+                    <td> {{row[0]}}</td>
+                    <td> {{row[1]}}</td>
+                    <td> {{row[2]}}</td>
+                    <td> {{row[3]}}</td>
+                    <td> {{row[4]}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</div>
+</body>
+</html>
